@@ -8,8 +8,15 @@ class Reaction(object):
         self.first = first
         self.second = second
 
+# Get the absolute path of this file (even when packaged or run interactively)
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
-oxidise_data = os.path.dirname(__file__) + "/../params/oxidise.data"
+# Define the expected oxidise.data location (relative to this file)
+oxidise_data = os.path.join(current_dir, "..", "params", "oxidise.data")
+
+# Normalize and resolve any ".." to avoid broken paths
+oxidise_data = os.path.abspath(oxidise_data)
+
 reactions = []
 with open(oxidise_data, "r") as f:
     count = 0
@@ -125,3 +132,4 @@ if __name__ == "__main__":
     fi = rf.feature_importances_
     for i, j in zip(attributes, fi):
         print(i, j)
+
