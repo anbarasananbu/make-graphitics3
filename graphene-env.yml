@@ -1,0 +1,13 @@
+name: graphene
+channels:
+  - anaconda
+  - defaults
+  - conda
+  - conda-forge
+dependencies:
+  - numpy
+  - pytest
+  - pyyaml
+  - scikit-learn
+  - setuptools
+
